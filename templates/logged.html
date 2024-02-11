@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="login-page-child"></div>
+      <img
+        class="objectother-03-icon"
+        alt=""
+        src="{{ url_for('static', filename='objectother-03@2x.png') }}"
+      />
+
+      <div class="login-page-item"></div>
+      <div class="login-page-inner"></div>
+      <div class="layout">
+        <img class="background-icon" alt="" src="{{ url_for('static', filename='background.svg') }}" />
+
+        <!-- Form component -->
+        <div class="form-component">
+          <form id="login-form" action="/schedule" method="POST">
+            <div class="enter-name">
+              <div class="enter-name-child"></div>
+              <input type="text" name="name" id="email" class="enter-email" placeholder="Enter Session" />
+            </div>
+            <div class="password">
+              <div class="enter-name-child"></div>
+              <select name="doctors" id="doctors" class="div115">
+                <option value="" disabled selected>Select Doctor</option>
+                {% for doctor in doctor_schedules.doctors %}
+                <option value="{{ doctor.name }}">{{ doctor.name }}</option>
+                {% endfor %}
+              </select>
+              <input type="hidden" id="doctorsString" name="doctorsString" /> <!-- Hidden field to send doctors as a string -->
+              <button class="button12" data-animate-on-scroll></button>
+            </div>
+            <div class="forms">
+              <div class="button-parent"></div>
+              <div class="frame">
+                <button class="button16">
+                  <div class="button-child1"></div>
+                  <b class="sign-in">Schedule</b>
+                </button>
+              </div>
+            </div>
+            <div class="response-container" id="response"></div>
+          </form>
+        </div>
+
+        <div class="top-side">
+          <div class="main-menu">
+            <a href="{{ url_for('home_page') }}" style="text-decoration: none; color: inherit;">
+              <button class="home">Home</button>
+            </a>
+            <div class="frame1">
+              <button class="doctors">Schedule</button>
+              <button class="note">Note</button>
+              <button class="contact">Contact</button>
+              <button class="pages">Pages</button>
+            </div>
+          </div>
+          <div class="frame2"></div>
+          <div class="frame2"></div>
+          <div class="frame2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- End of Form component -->
+  
+    <script>
+      document.getElementById('login-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var session = document.getElementById('email').value;
+        var doctors = document.getElementById('doctors').value;
+
+        // Set the value of the hidden input field to the selected doctor as a string
+        document.getElementById('doctorsString').value = doctors;
+
+        // Send session and doctorsString to the server for processing
+        fetch('/schedule', {
+          method: 'POST',
+          body: new URLSearchParams({
+            session: session,
+            doctors: doctors,
+            doctorsString: document.getElementById('doctorsString').value,
+          }),
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            var responseContainer = document.getElementById('response');
+            responseContainer.innerHTML = 'Response: ' + JSON.stringify(data, null, 2);
+          })
+          .catch(function (error) {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+          });
+      });
+    </script>
+  </body>
+</html>

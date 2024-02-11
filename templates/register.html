@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="register-page">
+      <div class="register-page-child"></div>
+      <div class="register-page-item"></div>
+      <img
+        class="objectother-07-icon"
+        alt=""
+        src="{{ url_for('static', filename='objectother-07@2x.png') }}"
+      />
+
+      <div class="background-parent">
+        <img class="background-icon1" alt="" src="{{ url_for('static', filename='background1.svg') }}" />
+
+        <div class="top-side1">
+          <div class="sign-in2">
+            <div class="sign-in-child"></div>
+            <a href="{{ url_for('login_pg') }}" class="sign-in-button">
+              <b class="sign-in3">Sign in</b>
+            </a>
+          </div>
+          <a href="{{ url_for('register_page') }}" class="button8">
+            <b class="register1">Register</b>
+          </a>
+          <img class="icon1" alt="" src="{{ url_for('static', filename='icon1.svg') }}" />
+        </div>
+        <form method="POST" action="/register" name="registerForm" onsubmit="return validateForm()">
+          <div class="enter-name1">
+            <input type="text" name="name" placeholder="Enter Your Name" />
+          </div>
+          <div class="enter-name2">
+            <input type="text" name="email" placeholder="Enter Your Email" />
+            <img class="x-icon1" alt="" src="{{ url_for('static', filename='x-icon.svg') }}" />
+          </div>
+          <div class="password1">
+            <input type="password" name="password" placeholder="Enter Your Password" />
+          </div>
+          <div class="button-group">
+            <button class="button9">
+              <img class="shape-icon2" alt="" src="{{ url_for('static', filename='shape2.svg') }}" />
+            </button>
+            <button class="button10">
+              <img class= "shape-icon3" alt="" src="{{ url_for('static', filename='shape3.svg') }}" />
+            </button>
+            <button class="button11">
+              <img class="wrapper-icon1" alt="" src="{{ url_for('static', filename='wrapper1.svg') }}" />
+            </button>
+          </div>
+          <div class="frame5">
+            <button class="button12" type="submit">
+              <div class="rectangle-div"></div>
+              <b class="register2">Register</b>
+            </button>
+            <div class="line1">
+              <div class="or-continue-with1">Or continue with</div>
+              <div class="line-inner"></div>
+              <div class="line-child1"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      function validateForm() {
+          var name = document.forms["registerForm"]["name"].value;
+          var email = document.forms["registerForm"]["email"].value;
+          var password = document.forms["registerForm"]["password"].value;
+          var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  
+          if (name.trim() === "") {
+              alert("Name must not be empty");
+              return false;
+          }
+  
+          if (!email.match(emailPattern)) {
+              alert("Invalid email format");
+              return false;
+          }
+  
+          if (password.trim() === "") {
+              alert("Password must not be empty");
+              return false;
+          }
+  
+          return true;
+      }
+  </script>
+  
+  </body>
+</html>

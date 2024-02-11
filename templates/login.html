@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="login-page-child"></div>
+      <img
+        class="objectother-03-icon"
+        alt=""
+        src="{{ url_for('static', filename='objectother-03@2x.png') }}"
+      />
+
+      <div class="login-page-item"></div>
+      <div class="login-page-inner"></div>
+      <div class="layout">
+        <img class="background-icon" alt="" src="{{ url_for('static', filename='background.svg') }}" />
+
+        <!-- Form component -->
+        <div class="form-component">
+          <form id="login-form" action="/login" method="POST">
+            <div class="enter-name">
+              <div class="enter-name-child"></div>
+              <input type="text" name="name" id="email" class="enter-email" placeholder="Enter Email" />
+            </div>
+            <div class="password">
+              <div class="enter-name-child"></div>
+              <input type="password" name="password" id="password" class="div115" placeholder="••••••••" />
+              <button class="button12" data-animate-on-scroll>
+              </button>
+            </div>
+            
+            <div class="forms">
+              <div class="button-parent">
+                <button class="button13">
+                  <div class="button-item"></div>
+                  <img class="shape-icon" alt="" src="{{ url_for('static', filename='shape.svg') }}" />
+                </button>
+                <button class="button14">
+                  <div class="button-inner"></div>
+                  <img class="shape-icon1" alt="" src="{{ url_for('static', filename='shape1.svg') }}" />
+                </button>
+                <button class="button15">
+                  <div class="button-item"></div>
+                  <img class="wrapper-icon" alt="" src="{{ url_for('static', filename='wrapper.svg') }}" />
+                </button>
+              </div>
+              <div class="frame">
+                <button class="button16">
+                  <div class="button-child1"></div>
+                  <b class="sign-in">Sign In</b>
+                </button>
+                <div class="line">
+                  <div class="or-continue-with">Or continue with</div>
+                  <div class="line-child"></div>
+                  <div class="line-item"></div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        
+
+        <div class="top-side">
+          <div class="main-menu">
+            
+          </div>
+          <div class="frame2"></div>
+          <div class="frame2"></div>
+          <div class="frame2">
+            <button class="button17">
+              <a href="{{ url_for('register_page') }}" style="text-decoration: none; color: inherit;">
+                <b class="register">Register</b>
+              </a>
+
+            </button>
+            <button class="button18">
+              <div class="button19">
+                <a href="{{ url_for('login_pg') }}" class="sign-in-button">
+                  <b class="sign-in1">Sign in</b>
+                </a>
+                <div class="line-div"></div>
+              </div>
+              <img class="icon" alt="" src="{{ url_for('static', filename='icon.svg') }}" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- End of Form component -->
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+  
+      if (!email || !password) {
+        alert('Please fill in both email and password fields.');
+        return;
+      }
+  
+      // Validate the email format
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert('Invalid email format. Please enter a valid email address.');
+        return;
+      }
+  
+      // Send login credentials to the server for validation
+      fetch('/login', {
+        method: 'POST',
+        body: new URLSearchParams({
+          name: email,
+          password: password,
+        }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          if (data.success) {
+            // Redirect to the dashboard or a success page
+            window.location.href = "{{ url_for('logged_page') }}";
+          } else {
+            alert(data.message);
+          }
+        })
+        .catch(function (error) {
+          console.error('Error:', error);
+          alert('An error occurred. Please try again.');
+        });
+    });
+  </script>
+  
+  
+  </body>
+</html>

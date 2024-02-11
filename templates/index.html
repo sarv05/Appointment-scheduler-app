@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+<div class="inner">
+    <div class="vec">
+        <div class="img">
+            <img src="{% static 'img/vect1.jpg' %}">
+        </div>
+        <div class="card">
+            <div class="crdbtn">
+                <div style="margin-bottom: 40px;" >
+                    <a href="{% url 'timetable' %}" class="btn">Generate Schedule</a>
+                </div>
+                <div>
+                    <a href="{% url 'chat' %}" class="btn">Interact With DocAI</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

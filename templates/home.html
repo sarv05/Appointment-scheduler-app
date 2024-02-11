@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap"
+    />
+    
+    
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="login-page-child"></div>
+      <img
+        class="objectother-03-icon1"
+        alt=""
+        src="{{ url_for('static', filename='objectother-03@2x.png') }}"
+      />
+
+      <div class="login-page-item"></div>
+      <div class="login-page-inner"></div>
+      <div class="layout">
+        <img class="background-icon" alt="" src="{{ url_for('static', filename='background.svg') }}" />
+
+        <b class="elderly-care">Elderly Care</b>        
+
+      
+          <div class="frame2"></div>
+          <div class="frame2"></div>
+          <div class="frame2">
+            <button class="button17">
+              <a href="{{ url_for('register_page') }}" style="text-decoration: none; color: inherit;">
+                <b class="register">Register</b>
+              </a>
+
+            </button>
+            <button class="button18">
+              <div class="button19">
+                <a href="{{ url_for('login_page') }}" class="sign-in-button">
+                  <b class="sign-in1">Sign in</b>
+                </a>
+                <div class="line-div"></div>
+              </div>
+              <img class="icon" alt="" src="{{ url_for('static', filename='icon.svg') }}" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

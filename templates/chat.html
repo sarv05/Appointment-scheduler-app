@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocAI</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+    
+        #chat-container {
+            max-width: 900px; 
+            margin: 50px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #chat-header {
+            background-color: #838cf1;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+        }
+    
+        #chat-messages {
+            padding: 20px;
+            max-height: 400px; 
+            overflow-y: auto;
+            font-size: 16px;
+        }
+    
+        .user, .server {
+            padding: 15px; 
+            margin: 15px;
+            border-radius: 8px;
+        }
+    
+        .user {
+            background-color: #01d7a7;
+            color: #fff;
+            align-self: flex-end;
+        }
+    
+        .server {
+            background-color: #e0e0e0;
+            color: #333;
+            align-self: flex-start;
+        }
+    
+        #message-input {
+            width: calc(100% - 30px); 
+            padding: 15px; 
+            margin: 0 15px; 
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px; 
+            box-sizing: border-box;
+        }
+    
+        button {
+            width: calc(100% - 30px); 
+            padding: 15px; 
+            margin: 15px; 
+            background-color: #01d7a7;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px; 
+        }
+    </style>
+    <script>
+        // Function to get the CSRF cookie value
+        function getCSRFCookie() {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Check if the cookie name starts with 'csrftoken'
+                    if (cookie.substring(0, 'csrftoken'.length + 1) === ('csrftoken' + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring('csrftoken'.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        // Function to send a message to Django
+        function sendToDjango(message) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/chat/', true);
+            
+            // Include the CSRF token in the headers
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+            xhr.setRequestHeader('X-CSRFToken', getCSRFCookie());
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    displayMessage('DocAI', response.message, 'server');
+                }
+            };
+
+            var data = JSON.stringify({ message: message });
+            xhr.send(data);
+        }
+
+        function sendMessage() {
+            var messageInput = document.getElementById('message-input');
+            var message = messageInput.value;
+
+            if (message.trim() === '') {
+                alert('Please enter a message');
+                return;
+            }
+
+            // Display the user's message
+            displayMessage('You', message, 'user');
+
+            // Send the message to the Django backend
+            sendToDjango(message);
+
+            // Clear the input field
+            messageInput.value = '';
+        }
+
+        function displayMessage(sender, content, messageType) {
+            var chatMessages = document.getElementById('chat-messages');
+            var messageDiv = document.createElement('div');
+            messageDiv.className = messageType;
+            messageDiv.innerHTML = `<strong>${sender}:</strong> ${content}`;
+            chatMessages.appendChild(messageDiv);
+
+            // Scroll to the bottom to show the latest message
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-header">DocAI</div>
+        <div id="chat-messages"></div>
+        <input type="text" id="message-input" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</body>
+</html>

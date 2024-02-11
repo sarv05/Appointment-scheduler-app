@@ -1,0 +1,560 @@
+@keyframes slit-in-vertical {
+    0% {
+      transform: translateZ(-800px) rotateY(90deg);
+      opacity: 0;
+    }
+    54% {
+      transform: translateZ(-160px) rotateY(87deg);
+      opacity: 1;
+    }
+    to {
+      transform: translateZ(0) rotateY(0);
+    }
+  }
+  .login-page-child {
+    position: absolute;
+    top: 0;
+    left: 708px;
+    background-color: var(--color-cornflowerblue-100);
+    width: 572px;
+    height: 720px;
+  }
+  .objectother-03-icon1 {
+    position: absolute;
+    height: 70.83%;
+    width: 36.88%;
+    top: 9.17%;
+    right: 60.14%;
+    bottom: 20%;
+    left: 33.98%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  .objectother-03-icon {
+    position: absolute;
+    height: 70.83%;
+    width: 36.88%;
+    top: 9.17%;
+    right: 29.14%;
+    bottom: 20%;
+    left: 3.98%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  .login-page-inner,
+  .login-page-item {
+    position: absolute;
+    border-radius: 105.53px;
+    transform: rotate(-41.1deg);
+    transform-origin: 0 0;
+  }
+  .login-page-item {
+    top: 912.3px;
+    left: -287px;
+    background-color: #838cf1;
+    width: 596.7px;
+    height: 141.4px;
+  }
+  .login-page-inner {
+    top: 895.1px;
+    left: -252px;
+    background-color: var(--color-cornflowerblue-100);
+    width: 553.7px;
+    height: 131.2px;
+  }
+  .background-icon,
+  .elderly-care {
+    position: absolute;
+    top: -47px;
+    left: -29px;
+    width: 678px;
+    height: 720px;
+  }
+  .elderly-care {
+    top: 280.6px;
+    left: 33px;
+    line-height: 77px;
+    display: inline-block;
+    width: 468.7px;
+    height: 114.4px;
+  }
+  .enter-name-child {
+    position: absolute;
+    height: 77.94%;
+    width: 100%;
+    top: 10.32%;
+    right: 0;
+    bottom: 11.75%;
+    left: 0;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-whitesmoke-400);
+  }
+  .password input[type="password"] {
+    width: 300px;
+    height: 40px;
+    top: 15%;
+    left: 1.50%;
+    border-color: transparent;
+    background-color: var(--color-whitesmoke-400);
+  }
+  
+  .password input[type="password"]:focus {
+    width: 300px;
+    height: 40px;
+    top: 15%;
+    left: 1.50%;
+    outline: none;
+    background-color: var(--color-whitesmoke-400);
+  }
+  .enter-name input:focus,
+  .password input:focus {
+    width: 300px;
+    height: 40px;
+    outline: none;
+    background-color: var(--color-whitesmoke-400);
+  }
+
+  .enter-email {
+    border-color: transparent;
+    position: absolute;
+    top: 15%;
+    left: 1.50%;
+    letter-spacing: 0.09em;
+    line-height: 1; 
+    font-weight: 500;
+    width: 300px;
+    height: 40px;
+    background-color: var(--color-whitesmoke-400);
+  }
+  
+  .button-icon {
+    position: absolute;
+    height: 31.11%;
+    width: 6%;
+    top: 33.81%;
+    right: 5.75%;
+    bottom: 35.08%;
+    left: 88.25%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .enter-name {
+    border-color: transparent;
+    position: absolute;
+    top: 202px;
+    left: 850px;
+    width: 355px;
+    height: 63px;
+    font-size: var(--font-size-lg);
+    color: var(--color-dimgray-100);
+  }
+  .div115 {
+    position: absolute;
+    top: 33.81%;
+    left: 5.01%;
+    line-height: 24px;
+  }
+  .button-child,
+  .button12 {
+    position: absolute;
+    overflow: hidden;
+  }
+  .button-child {
+    height: 68.88%;
+    width: 81.69%;
+    top: 12.76%;
+    right: 7.51%;
+    bottom: 18.37%;
+    left: 10.8%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .button12 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    height: 31.11%;
+    width: 6%;
+    top: 33.81%;
+    right: 6%;
+    bottom: 35.08%;
+    left: 88%;
+    opacity: 0;
+  }
+  .button12.animate {
+    animation: 1s ease 0s 1 normal forwards slit-in-vertical;
+  }
+  .password {
+    position: absolute;
+    top: 267px;
+    left: 850px;
+    width: 355px;
+    height: 63px;
+    font-size: var(--font-size-7xl);
+    color: var(--color-slategray);
+    font-family: var(--font-inter);
+  }
+  .button-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-whitesmoke-300);
+    border: 1px solid var(--color-gainsboro-300);
+    box-sizing: border-box;
+    width: 103.9px;
+    height: 48.7px;
+  }
+  .shape-icon {
+    position: absolute;
+    height: 46.61%;
+    width: 23.97%;
+    top: 26.69%;
+    right: 38.4%;
+    bottom: 26.69%;
+    left: 37.63%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .button-inner,
+  .button13 {
+    position: absolute;
+    top: 0;
+    width: 103.9px;
+    height: 48.7px;
+  }
+  .button13 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    left: 252.1px;
+  }
+  .button-inner {
+    left: 0;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-white);
+    box-shadow: 0 10px 13px rgba(0, 0, 0, 0.13);
+  }
+  .shape-icon1 {
+    position: absolute;
+    height: 46.61%;
+    width: 19.63%;
+    top: 26.69%;
+    right: 40.23%;
+    bottom: 26.69%;
+    left: 40.13%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .button14 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 126.1px;
+    width: 103.9px;
+    height: 48.7px;
+  }
+  .wrapper-icon {
+    position: absolute;
+    height: 46.61%;
+    width: 23.48%;
+    top: 26.69%;
+    right: 38.11%;
+    bottom: 26.69%;
+    left: 38.4%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+  }
+  .button15 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    width: 103.9px;
+  }
+  .button-child1,
+  .button-parent,
+  .button15 {
+    position: absolute;
+    height: 48.7px;
+  }
+  .button-parent {
+    top: 135.3px;
+    left: 0;
+    width: 356px;
+  }
+  .button-child1 {
+    top: 13.5px;
+    left: calc(50% - 177.55px);
+    border-radius: var(--br-3xs);
+    background-color: var(--color-mediumslateblue-100);
+    box-shadow: 0 12px 21px 4px rgba(68, 97, 242, 0.15);
+    width: 355.1px;
+  }
+  .button16,
+  .sign-in {
+    position: absolute;
+    top: 0;
+    height: 63px;
+  }
+  .sign-in {
+    left: calc(50% - 56.55px);
+    font-size: var(--font-size-lgi);
+    letter-spacing: 0.09em;
+    line-height: 77px;
+    display: inline-block;
+    font-family: var(--font-poppins);
+    color: var(--color-white);
+    text-align: left;
+    width: 114px;
+  }
+  .button16 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    left: 0;
+    width: 355.1px;
+  }
+  .or-continue-with {
+    position: absolute;
+    top: 0;
+    left: 122px;
+    letter-spacing: 0.09em;
+    line-height: 77px;
+    font-weight: 500;
+    display: inline-block;
+    width: 144px;
+    height: 60px;
+  }
+  .line-child,
+  .line-item {
+    position: absolute;
+    top: 39.1px;
+    left: -0.5px;
+    border-top: 1px solid var(--color-gainsboro-200);
+    box-sizing: border-box;
+    width: 107.5px;
+    height: 1px;
+  }
+  .line-item {
+    left: 248.1px;
+  }
+  .line {
+    top: 59px;
+    left: 0;
+    width: 355.1px;
+    height: 60px;
+  }
+  .forms,
+  .frame,
+  .line {
+    position: absolute;
+  }
+  .frame {
+    top: 0;
+    left: 0;
+    width: 355.1px;
+    height: 119px;
+    overflow: hidden;
+  }
+  .forms {
+    top: 364px;
+    left: 850px;
+    width: 356px;
+    height: 184px;
+    font-size: var(--font-size-2xs);
+    color: #f0fff0;
+  }
+  .contact,
+  .doctors,
+  .home,
+  .note,
+  .pages {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: var(--font-size-mid);
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    font-family: var(--font-poppins);
+    color: var(--color-black);
+    text-align: left;
+    display: inline-block;
+    width: 60px;
+    height: 13px;
+  }
+  .contact,
+  .doctors,
+  .note,
+  .pages {
+    top: 0.1px;
+    width: 80px;
+  }
+  .contact,
+  .note,
+  .pages {
+    top: 0;
+    left: 125.4px;
+    width: 60px;
+  }
+  .contact,
+  .pages {
+    left: 346.8px;
+    width: 82.2px;
+  }
+  .pages {
+    left: 225.8px;
+    width: 60px;
+  }
+  .frame1,
+  .frame2,
+  .main-menu {
+    position: absolute;
+    height: 26px;
+  }
+  .frame1 {
+    top: 0;
+    left: 119px;
+    width: 429px;
+    overflow: hidden;
+  }
+  .frame2,
+  .main-menu {
+    top: 9px;
+    left: 0.4px;
+    width: 548px;
+  }
+  .frame2 {
+    top: 0;
+    left: 920.4px;
+    width: 222.2px;
+    height: 34.9px;
+    overflow: hidden;
+  }
+  .register {
+    position: absolute;
+    top: 4.7px;
+    left: 23.9px;
+    font-size: var(--font-size-mid);
+    letter-spacing: 0.06em;
+    display: inline-block;
+    font-family: var(--font-poppins);
+    color: var(--color-mediumslateblue-100);
+    text-align: left;
+    width: 84.1px;
+    height: 13px;
+  }
+  .button17,
+  .sign-in1 {
+    position: absolute;
+    top: 0;
+  }
+  .button17 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: var(--color-white);
+    left: 95px;
+    border-radius: var(--br-2xl);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05);
+    width: 127.2px;
+    height: 34.1px;
+  }
+  .sign-in1 {
+    left: 0;
+    font-size: var(--font-size-mid);
+    letter-spacing: 0.06em;
+    display: inline-block;
+    font-family: var(--font-poppins);
+    color: var(--color-mediumslateblue-100);
+    text-align: left;
+    width: 96.4px;
+    height: 13px;
+  }
+  .line-div {
+    position: absolute;
+    top: 28.7px;
+    left: 11.7px;
+    border-top: 3px solid var(--color-mediumslateblue-100);
+    box-sizing: border-box;
+    width: 36.9px;
+    height: 3px;
+  }
+  .button19 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 96.4px;
+    height: 30.2px;
+  }
+  .button18,
+  .icon {
+    position: absolute;
+    overflow: hidden;
+  }
+  .icon {
+    height: 16.23%;
+    width: 7.99%;
+    top: 32.78%;
+    right: 36.83%;
+    bottom: 50.99%;
+    left: 55.19%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .button18 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    top: 4.7px;
+    left: 0;
+    width: 96.4px;
+    height: 30.2px;
+  }
+  .layout,
+  .top-side {
+    position: absolute;
+    top: 0;
+    left: 38.6px;
+    width: 1142.7px;
+    height: 34.9px;
+  }
+  .layout {
+    top: 47px;
+    left: 29px;
+    width: 1206px;
+    height: 548px;
+  }
+  .login-page {
+    position: relative;
+    background-color: #ebefff;
+    width: 100%;
+    height: 720px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-39xl);
+    color: var(--color-black);
+    font-family: var(--font-poppins);
+  }
+  

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<fieldset class="fieldset">
+    <a href="{% url 'addcourse'%}"><h1 class="tablink" onclick="openPage('new')" id="defaultOpen">Add Patient</h1></a>
+    <h1 class="tablink" onclick="openPage('edit')" id="link_to_edit">Edit Patient</h1>
+    <div class="tabcontent" id="edit">
+        <table class="table1">
+            <thead>
+            <tr class="table-headers">
+            <th>Patient Number</th>
+            <th>Patient Name</th>
+            <th  class="empty"></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for crs in patients %}
+            <tr>
+             <td>{{crs.patient_number}}</td>
+             <td>{{crs.patient_name}}</td>
+             <td class="empty">
+                <form action="{% url 'deletecourse' crs.patient_number %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="X" class="cross">
+                </form>
+             </td>
+             </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+</fieldset>
+
+<div class="img">
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
